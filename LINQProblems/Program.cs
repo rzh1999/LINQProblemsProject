@@ -69,13 +69,19 @@ namespace LINQProblems
             string toCount = "Terrill";
 
             //create almost like a dictionary as to how I solved before not using link
-            var listOfStrings = from character in toCount group character by character into newCharacter select newCharacter;
-            foreach(var element in listOfStrings)
+            try
             {
-                //Couldnt figure out how to print the letter but the count is right
-                Console.WriteLine($"{element.Count()}");
+                var listOfStrings = from character in toCount group character by character into newCharacter select newCharacter;
+                foreach (var element in listOfStrings)
+                {
+                    //Couldnt figure out how to print the letter but the count is right
+                    Console.WriteLine($"{element.Count()}");
+                }
             }
-
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e); 
+            }
 
 
 
